@@ -7,7 +7,7 @@ from transformer_layers import *
 
 def load_lob_data(day=1):
     current_path = os.getcwd()
-    data_path = os.path.join(current_path, f"serving\static\data\lobdata_day_{day}.txt")
+    data_path = os.path.join(current_path, f"serving/static/data/lobdata_day_{day}.txt")
 
     lob_data = np.loadtxt(data_path)
     lob_data = np.array(lob_data[:40, :].T)
@@ -26,7 +26,7 @@ def load_lob_data(day=1):
 
 def predict(lob_data, T=100, horizon=4):
     current_path = os.getcwd()
-    model_path = os.path.join(current_path, "serving\static\deeplob_serving_model.h5")
+    model_path = os.path.join(current_path, "serving/static/deeplob_serving_model.h5")
     model = load_model(model_path,
                        custom_objects={"PositionalEncodingLayer": PositionalEncodingLayer,
                                        "MultiHeadSelfAttention": MultiHeadSelfAttention,
